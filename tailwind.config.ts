@@ -14,7 +14,7 @@ export default {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
       colors: {
-        lama: "#F35C7A",
+        pussy: "#F35C7A",
       },
     },
   },
