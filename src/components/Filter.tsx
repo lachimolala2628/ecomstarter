@@ -1,50 +1,55 @@
+'use client'
+
 import React from 'react'
+import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 
 const Filter = () => {
+
+    const pathname = usePathname();
+    const searchParams = useSearchParams();
+    const { replace } = useRouter();
+
+    const handleFilterChange = (
+        e: React.ChangeEvent<HTMLSelectElement | HTMLInputElement>
+    ) => {
+        const { name, value } = e.target;
+        const params = new URLSearchParams(searchParams);
+        params.set(name, value);
+        replace(`${pathname}?${params.toString()}`);
+    };
+
     return (
-        <div className='mt-12 flex justify-between'>
-            <div className='flex gap-6 flex-wrap'>
-                <select name='type' id='' className='py-2 px-4 rounded-2xl text-xs font-medium bg-[#EBEDED]'>
+        <div className="mt-12 flex justify-between">
+            <div className="flex gap-6 flex-wrap">
+                <select
+                    name="type"
+                    id=""
+                    className="py-2 px-4 rounded-2xl text-xs font-medium bg-[#EBEDED]"
+                    onChange={handleFilterChange}
+                >
                     <option>Type</option>
-                    <option value='physical'>Physical</option>
-                    <option value='digital'>Digital</option>
+                    <option value="physical">Physical</option>
+                    <option value="digital">Digital</option>
                 </select>
                 <input
                     type="text"
                     name="min"
                     placeholder="min price"
                     className="text-xs rounded-2xl pl-2 w-24 ring-1 ring-gray-400"
+                    onChange={handleFilterChange}
                 />
                 <input
                     type="text"
                     name="max"
                     placeholder="max price"
                     className="text-xs rounded-2xl pl-2 w-24 ring-1 ring-gray-400"
+                    onChange={handleFilterChange}
                 />
-                <select
-                    name="Size"
-                    className="py-2 px-4 rounded-2xl text-xs font-medium bg-[#EBEDED]"
-                >
-                    <option>Size</option>
-                    <option value="">sm</option>
-                    <option value="">md</option>
-                    <option value="">lg</option>
-                    <option value="">xl</option>
-                    <option value="">xxl</option>
-                </select>
-                <select
-                    name="Color"
-                    className="py-2 px-4 rounded-2xl text-xs font-medium bg-[#EBEDED]"
-                >
-                    <option>Color</option>
-                    <option value="">Aesthetic</option>
-                    <option value="">Earth</option>
-                    <option value="">Bright</option>
-                </select>
                 {/* TODO: Filter Categories */}
                 <select
                     name="cat"
                     className="py-2 px-4 rounded-2xl text-xs font-medium bg-[#EBEDED]"
+                    onChange={handleFilterChange}
                 >
                     <option>Category</option>
                     <option value="">New Arrival</option>
@@ -58,11 +63,12 @@ const Filter = () => {
                     <option>All Filters</option>
                 </select>
             </div>
-            <div className=''>
+            <div className="">
                 <select
                     name="sort"
                     id=""
                     className="py-2 px-4 rounded-2xl text-xs font-medium bg-white ring-1 ring-gray-400"
+                    onChange={handleFilterChange}
                 >
                     <option>Sort By</option>
                     <option value="asc price">Price (low to high)</option>
@@ -71,7 +77,7 @@ const Filter = () => {
                     <option value="desc lastUpdated">Oldest</option>
                 </select>
             </div>
-        </div >
+        </div>
     )
 }
 
