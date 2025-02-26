@@ -1,8 +1,12 @@
+'use client'
+
 import React from 'react'
 import Link from 'next/link'
 import Menu from './Menu'
 import SearchBar from './SearchBar'
-import NavIcons from './NavIcons'
+import dynamic from 'next/dynamic'
+
+const NavIcons = dynamic(() => import("./NavIcons"), { ssr: false });
 
 const Navbar = () => {
     return (
@@ -32,7 +36,7 @@ const Navbar = () => {
                         <Link href='/'>Shop</Link>
                         <Link href='/'>Deals</Link>
                     </div>
-                </div>                                                      
+                </div>
                 {/* right */}
                 <div className='w-2/3 xl:w-1/2 flex items-center justify-between gap-8'>
                     <SearchBar />
