@@ -9,7 +9,7 @@ const slides = [
         id: 1,
         title: "Summer Sale Collections",
         description: "Sale! Up to 50% off!",
-        img: "https://images.pexels.com/photos/1926769/pexels-photo-1926769.jpeg?auto=compress&cs=tinysrgb&w=800",
+        img: "https://images.pexels.com/photos/1972115/pexels-photo-1972115.jpeg?auto=compress&cs=tinysrgb&w=600",
         url: "/",
         bg: "bg-gradient-to-r from-yellow-50 to-pink-50",
     },
@@ -17,7 +17,7 @@ const slides = [
         id: 2,
         title: "Winter Sale Collections",
         description: "Sale! Up to 50% off!",
-        img: "https://images.pexels.com/photos/1021693/pexels-photo-1021693.jpeg?auto=compress&cs=tinysrgb&w=800",
+        img: "https://images.pexels.com/photos/11831603/pexels-photo-11831603.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
         url: "/",
         bg: "bg-gradient-to-r from-pink-50 to-blue-50",
     },
@@ -25,7 +25,7 @@ const slides = [
         id: 3,
         title: "Spring Sale Collections",
         description: "Sale! Up to 50% off!",
-        img: "https://images.pexels.com/photos/1183266/pexels-photo-1183266.jpeg?auto=compress&cs=tinysrgb&w=800",
+        img: "https://images.pexels.com/photos/1557843/pexels-photo-1557843.jpeg?auto=compress&cs=tinysrgb&w=600",
         url: "/",
         bg: "bg-gradient-to-r from-blue-50 to-yellow-50",
     },
@@ -35,12 +35,12 @@ const Slider = () => {
 
     const [current, setCurrent] = useState(0);
 
-    // useEffect(() => {
-    //     const interval = setInterval(() => {
-    //         setCurrent(prev => (prev === slides.length - 1 ? 0 : prev + 1))
-    //     }, 3000)
-    //     return () => clearInterval(interval);
-    // }, []);
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrent(prev => (prev === slides.length - 1 ? 0 : prev + 1))
+        }, 3000)
+        return () => clearInterval(interval);
+    }, []);
 
     return (
         <div className='h-[calc(100vh-80px)] overflow-hidden'>
