@@ -1,6 +1,6 @@
 # 🛒 E-Commerce Platform
 
-A modern, responsive, and feature-rich e-commerce platform built with **Next.js**, **Tailwind CSS**, **Wix CMS**, **Zustand**, and **Wix SDK**.
+A modern, responsive, and feature-rich e-commerce platform built with **Next.js**, **TypeScript**, **Tailwind CSS**, **Wix CMS**, **Zustand**, and **Wix SDK**.
 This platform offers a seamless shopping experience across all devices with powerful features like authentication, product search, filtering, sorting, and more.
 
 ---
@@ -29,7 +29,7 @@ This platform offers a seamless shopping experience across all devices with powe
 
 ## 🛠 Tech Stack
 
-**Frontend:** Next.js, Tailwind CSS
+**Frontend:** Next.js, Tailwind CSS, TypeScript
 
 **CMS:** Wix CMS
 
